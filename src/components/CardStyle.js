@@ -4,7 +4,7 @@ export const cardStyle = {
         borderRadius: '10px',
         padding: '10px',
         textAlign: 'center',
-        width: '15vh',
+        width: '25vw',
         backgroundColor: 'yellowgreen',
         '&:hover': {
             backgroundColor: 'green',

@@ -6,7 +6,7 @@ import Loading from "../components/Loading";
 import {pagination, PokemonListStyle} from "./PokemonListStyle";
 
 const PokemonList = () => {
-    const [limit] = useState(10)
+    const [limit] = useState(9)
     const [offset, setOffset] = useState(0)
     const Pokelist = PokemonListService(limit, offset);
     let Poke = null;
@@ -14,10 +14,10 @@ const PokemonList = () => {
         Poke = Pokelist.pokemons.results;
     }
     const nextPokemon = ()=> {
-        setOffset(offset+10);
+        setOffset(offset+9);
     }
     const previousPokemon = ()=> {
-        setOffset(offset-10);
+        setOffset(offset-9);
     }
     return (
         <div>

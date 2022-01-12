@@ -3,7 +3,8 @@ export const PokemonListStyle = {
     flexWrap: 'wrap',
     margin: 'auto',
     padding: '10px',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    color: '#3B4CCA'
 }
 export const pagination = {
     display: 'flex',
