@@ -6,6 +6,7 @@ import PokemonList from "./views/PokemonList";
 import MyPokemon from "./views/MyPokemon";
 import Footer from "./components/Footer";
 import {container, content, page} from "./AppStyle";
+import PokemonDetail from "./views/PokemonDetail";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <div css={content}>
             <Routes>
               <Route path="/" element={<PokemonList/>}/>
+              <Route path="/pokemonDetail" element={<PokemonDetail/>}/>
               <Route path="/myPokemon" element={<MyPokemon/>}/>
             </Routes>
           </div>

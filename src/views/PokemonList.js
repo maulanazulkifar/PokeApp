@@ -3,7 +3,7 @@ import {useState} from "react";
 import PokemonListService from "../services/PokemonListService";
 import Card from "../components/Card";
 import Loading from "../components/Loading";
-import {pagination, PokemonListStyle} from "./PokemonListStyle";
+import {button, pagination, PokemonListStyle} from "./PokemonListStyle";
 
 const PokemonList = () => {
     const [limit] = useState(9)
@@ -28,10 +28,10 @@ const PokemonList = () => {
             </div>
             <div css={pagination}>
                 {
-                    offset === 0 ? <button onClick={() => previousPokemon()} disabled>Previous</button>
-                        : <button onClick={() => previousPokemon()}>Previous</button>
+                    offset === 0 ? <></>
+                        : <button onClick={() => previousPokemon()} css={button}>Previous</button>
                 }
-                <button onClick={() => nextPokemon()}>Next</button>
+                <button onClick={() => nextPokemon()} css={button}>Next</button>
             </div>
         </div>
     )
