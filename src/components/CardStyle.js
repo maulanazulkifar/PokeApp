@@ -1,3 +1,7 @@
+const breakpoints = [576, 768, 992, 1200]
+const mq = breakpoints.map(
+    bp => `@media (max-width: ${bp}px)`
+)
 export const cardStyle = {
         margin: '10px',
         border: 'green solid 2px',
@@ -11,5 +15,8 @@ export const cardStyle = {
             backgroundColor: 'green',
             color: 'white',
             cursor: 'pointer'
+        },
+        [mq[0]]: {
+            width: '50vw',
         }
 }
