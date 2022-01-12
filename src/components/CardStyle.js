@@ -17,6 +17,6 @@ export const cardStyle = {
             cursor: 'pointer'
         },
         [mq[0]]: {
-            width: '50vw',
+            width: '70vw',
         }
 }
