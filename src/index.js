@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ApolloClient} from "@apollo/client";
+import { HttpLink} from "@apollo/client";
+import { InMemoryCache} from "@apollo/client";
+import { ApolloProvider} from "@apollo/client";
+
+const client = new ApolloClient({
+    link: new HttpLink({
+        uri: `https://graphql-pokeapi.vercel.app/api/graphql`
+    }),
+    cache: new InMemoryCache()
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>,
   document.getElementById('root')
 );
 
