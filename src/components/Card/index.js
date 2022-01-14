@@ -4,15 +4,15 @@ import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
     const navigate = useNavigate();
-    const HandleDetail = (id)=> {
+    const HandleDetail = (name)=> {
         navigate('/pokemonDetail/', {
             state: {
-                id
+                name
             }
         });
     }
     return(
-        <div css={styles} onClick={() => HandleDetail(props.id)}>
+        <div css={styles} onClick={() => HandleDetail(props.name)}>
             <div>
                 <img src={props.image} alt=""/>
             </div>
