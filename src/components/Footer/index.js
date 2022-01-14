@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
-import {FooterStyle} from "./FooterStyle";
+import {Style} from "./style";
 
 const Footer = () => {
     return(
-        <div css={FooterStyle}>
+        <div css={Style}>
             Created by Maulana Zulkifar
         </div>
     )

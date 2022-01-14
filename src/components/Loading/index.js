@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import {LoaderStyle} from "./LoadingStyle";
+import {LoaderStyle} from "./style";
 
 const Loading = () => {
     return <div>

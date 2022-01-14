@@ -1,5 +1,5 @@
 
-export const HeaderStyle = {
+export const Style = {
         backgroundColor: '#3B4CCA'
     }
 export const TitleStyle = {

@@ -1,4 +1,4 @@
-export const FooterStyle = {
+export const Style = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',

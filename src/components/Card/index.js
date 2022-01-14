@@ -1,14 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import {cardStyle} from "./CardStyle";
+import {styles} from "./styles";
 import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
     const navigate = useNavigate();
-    const handleDetail = ()=> {
-        navigate('/pokemonDetail');
+    const HandleDetail = (id)=> {
+        navigate('/pokemonDetail/', {
+            state: {
+                id
+            }
+        });
     }
     return(
-        <div css={cardStyle} onClick={handleDetail}>
+        <div css={styles} onClick={() => HandleDetail(props.id)}>
             <div>
                 <img src={props.image} alt=""/>
             </div>

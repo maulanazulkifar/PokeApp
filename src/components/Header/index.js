@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import {Link} from "react-router-dom";
-import {HeaderStyle, ImageStyle, LinkStyle, NavStyle, TitleStyle} from "./HeaderStyle";
+import {Style, ImageStyle, LinkStyle, NavStyle, TitleStyle} from "./style";
 
 const Header = () => {
     return(
         <div
-            css={HeaderStyle}
+            css={Style}
         >
             <div
                 css={TitleStyle}
