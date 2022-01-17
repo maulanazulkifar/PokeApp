@@ -3,14 +3,17 @@ const mq = breakpoints.map(
     bp => `@media (max-width: ${bp}px)`
 )
 export const styles = {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         margin: '10px',
-        border: 'green solid 2px',
         boxShadow: '-5px 5px 0 0 #000',
         borderRadius: '10px',
         padding: '10px',
         textAlign: 'center',
         width: '25vw',
-        backgroundColor: 'yellowgreen',
+        backgroundColor: '#14A06F',
         '&:hover': {
             backgroundColor: 'green',
             color: 'white',
@@ -19,4 +22,11 @@ export const styles = {
         [mq[0]]: {
             width: '70vw',
         }
+}
+export const image = {
+    width: '100px'
+}
+export const info = {
+    color: 'white',
+    flexGrow: '2'
 }

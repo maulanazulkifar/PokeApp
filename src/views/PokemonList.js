@@ -23,7 +23,7 @@ const PokemonList = () => {
         <div>
             <div css={PokemonListStyle}>
                 {Poke ? Poke.map((item)=> {
-                    return <Card name={item.name} image={item.image} key={item.name} id={item.id}/>
+                    return <Card name={item.name} image={item.dreamworld} key={item.name} id={item.id}/>
                 }): <Loading></Loading>}
             </div>
             <div css={pagination}>

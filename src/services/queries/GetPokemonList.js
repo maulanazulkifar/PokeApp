@@ -13,6 +13,7 @@ export const GET_POKEMONS = gql`
         id
         name
         image
+        dreamworld
       }
     }
   }
