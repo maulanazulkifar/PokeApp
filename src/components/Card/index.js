@@ -12,7 +12,7 @@ const Card = (props) => {
                 owned = pokemon.owned;
             }
             return true;
-        })
+        });
         navigate('/pokemonDetail/', {
             state: {
                 name,
