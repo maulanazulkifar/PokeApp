@@ -1,30 +1,46 @@
 /** @jsxImportSource @emotion/react */
 import {chips, ImageAndNameStyle, ImageStyle, type} from "./style";
+import {useState} from "react";
 
 const ImageAndName = (props) => {
+    let tempPokemon = JSON.parse(localStorage.getItem('pokemon'));
+    const [owned, setOwned] = useState(props.owned? props.owned:0);
+    const [success, setSuccess] = useState(null);
+    if (tempPokemon) {
+        const choosenPokemon = tempPokemon.find(data=> data.id === props.detail.id);
+        if (choosenPokemon) {
+        }
+    }
     const imageLink = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.detail.id}.svg`;
-    const catchPokemon = (item) =>{
-        const detail = JSON.parse(JSON.stringify(item))
-        let tempPokemon = JSON.parse(localStorage.getItem('pokemon'));
+    const catchPokemon = (item) => {
+        const detail = JSON.parse(JSON.stringify(item));
         detail.owned = 1;
-        if (!tempPokemon) {
-            tempPokemon = [];
-            tempPokemon.push(detail);
-        } else {
-            tempPokemon.map(pokemon => {
-                console.log(pokemon)
-                if (pokemon.id === detail.id) {
-                    pokemon.owned = pokemon.owned + detail.owned;
+        const random_boolean = Math.random() < 0.5;
+        if (random_boolean) {
+            if (!tempPokemon) {
+                tempPokemon = [];
+                tempPokemon.push(detail);
+            } else {
+                let cachePokemon = null;
+                tempPokemon.forEach(data => {
+                    if (data.id === props.detail.id) {
+                        cachePokemon = data;
+                    }
+                });
+                if (cachePokemon) {
+                    cachePokemon.owned = detail.owned +cachePokemon.owned;
+                        setOwned(cachePokemon.owned);
                 } else {
+                    setOwned(1);
                     tempPokemon.push(detail);
                 }
-                return true;
-            })
+            }
+            localStorage.setItem('pokemon', JSON.stringify(tempPokemon));
+            setSuccess('Berhasil')
+        } else {
+            setSuccess('Gagal')
         }
-        console.log(detail);
-        console.log(tempPokemon);
-        localStorage.setItem('pokemon', JSON.stringify(tempPokemon));
-    };
+    }
     return(
         <div css={ImageAndNameStyle}>
             <img src={imageLink} alt="" css={ImageStyle}/>
@@ -32,9 +48,10 @@ const ImageAndName = (props) => {
             <div css={type}>{
                 props.detail.types.map(types => <div key={types.type.name} css={chips}>{types.type.name.toUpperCase()}</div>)
             }</div>
-            <div>Owned: {props.owned}</div>
+            <div>Owned: {owned}</div>
+            <div>{success !== null ?success:''}</div>
             <div>
-                <button onClick={()=>catchPokemon(props.detail)}>catch</button>
+                <button onClick={() => catchPokemon(props.detail)}>catch</button>
             </div>
         </div>
     )

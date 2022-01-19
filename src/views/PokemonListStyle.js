@@ -18,6 +18,7 @@ export const button = {
     border: '0px',
     borderRadius: '5px',
     padding: '10px',
+    margin: '10px',
     '&:hover': {
         cursor: 'pointer',
         backgroundColor: '#1f32b3',

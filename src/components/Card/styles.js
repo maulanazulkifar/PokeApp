@@ -24,9 +24,14 @@ export const styles = {
         }
 }
 export const image = {
-    width: '100px'
+    width: '100px',
+    height: '100px'
 }
 export const info = {
     color: 'white',
     flexGrow: '2'
+}
+export const buttonRelease = {
+    display: 'flex',
+    justifyContent: 'center'
 }

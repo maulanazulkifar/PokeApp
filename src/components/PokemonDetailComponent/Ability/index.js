@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import {AbilityStyle} from "./style";
+import {AbilityStyle, listAbility} from "./style";
+import {chips} from "../ImageAndName/style";
 
 const Ability = (props) => {
     return(
         <div css={AbilityStyle}>
-            <div>Ability</div>
-            <div>{props.ability.map(skill => <div key={skill.ability.name}>{skill.ability.name}</div>)}</div>
+            <div>ABILITY</div>
+            <div css={listAbility}>{props.ability.map(skill => <div key={skill.ability.name} css={chips}>{skill.ability.name.toUpperCase()}</div>)}</div>
         </div>
     )
 }

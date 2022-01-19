@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import {button, pagination, PokemonListStyle} from "./PokemonListStyle";
 
 const PokemonList = () => {
+    let tempPokemon = JSON.parse(localStorage.getItem('pokemon'));
     const [limit] = useState(9)
     const [offset, setOffset] = useState(0)
     const Pokelist = PokemonListService(limit, offset);
@@ -23,8 +24,17 @@ const PokemonList = () => {
         <div>
             <div css={PokemonListStyle}>
                 {Poke ? Poke.map((item)=> {
-                    return <Card name={item.name} image={item.dreamworld} key={item.name} id={item.id}/>
-                }): <Loading></Loading>}
+                    let tempOwned = 0;
+                    if (tempPokemon) {
+                        tempPokemon.map(data => {
+                            if (data.id === item.id) {
+                                tempOwned = data.owned;
+                            }
+                            return true;
+                        });
+                    }
+                    return <Card name={item.name} image={item.dreamworld} key={item.name} id={item.id} owned={tempOwned?tempOwned:null}/>
+                }): <Loading/>}
             </div>
             <div css={pagination}>
                 {

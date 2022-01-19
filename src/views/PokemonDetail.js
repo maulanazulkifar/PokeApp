@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import {useLocation, useNavigate} from 'react-router-dom';
 import PokeDetailService from "../services/PokemonDetailService";
 import Loading from "../components/Loading";
 import PokemonDetailComponent from "../components/PokemonDetailComponent";
+import {button} from "./PokemonListStyle";
 
 const PokemonDetail = () => {
     const location = useLocation();
@@ -18,7 +20,7 @@ const PokemonDetail = () => {
             PokeDetail? <PokemonDetailComponent detail={PokeDetail} owned={owned}/>
                 :<Loading/>
         }
-            <button onClick={handleBack}>Back</button>
+            <button onClick={handleBack} css={button}>Back</button>
         </div>
     )
 }
